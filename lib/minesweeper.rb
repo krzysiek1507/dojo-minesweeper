@@ -42,10 +42,6 @@ class Minesweeper
     end
   end
 
-  def empty_board?
-    @input == '0 0'
-  end
-
   def contains_bomb?(row, column)
     field(row, column) == '*'
   end
@@ -73,26 +69,15 @@ end
 
 class MinesweeperBoard
   attr_accessor :board
-  attr_reader :rows, :columns
 
   def initialize(rows, columns)
-    @rows = rows
-    @columns = columns
-    
-    @board = Array.new(@rows) { Array.new(@columns, 0) }
+    @board = Array.new(rows) { Array.new(columns, 0) }
   end
 end
 
 class MinesweeperBoardPrinter
 
   def self.print(board)
-    string = ''
-    board.rows.times do |row|
-      board.columns.times do |column|
-        string << board.board[row][column]
-      end
-      string << "\n"
-    end
-    string.chop
+    board.board.map { |line| line.join }.join("\n").to_s
   end
 end
