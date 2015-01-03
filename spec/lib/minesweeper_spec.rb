@@ -37,4 +37,18 @@ describe Minesweeper do
       it {expect(subject.generate).to eq("*\n1")}
     end
   end
+
+  context '10x10 board' do
+    context 'without bomb' do
+      let (:input) { "10 10\n..........\n..........\n..........\n..........\n..........\n..........\n..........\n..........\n..........\n.........."}
+
+      it {expect(subject.generate).to eq("0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000\n0000000000")}
+    end
+    context 'with bombs' do
+      let (:input) { "10 10\n**********\n**********\n**********\n**********\n**********\n**********\n**********\n**********\n**********\n**********\n"}
+
+      it {expect(subject.generate).to eq("**********\n**********\n**********\n**********\n**********\n**********\n**********\n**********\n**********\n**********")}
+    end
+  end
 end
+

@@ -55,11 +55,11 @@ class Minesweeper
   end
 
   def number_of_rows
-    @input[0].to_i
+    @input.lines[0].split[0].to_i
   end
 
   def number_of_columns
-    @input[2].to_i
+    @input.lines[0].split[1].to_i
   end
 
   def empty_board(rows, colums)
