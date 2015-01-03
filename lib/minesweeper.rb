@@ -78,14 +78,8 @@ class MinesweeperBoard
   def initialize(rows, columns)
     @rows = rows
     @columns = columns
-    @board = []
-
-    @rows.times do |row|
-      @board[row] = []
-      @columns.times do |column|
-        @board[row][column] = '0'
-      end
-    end
+    
+    @board = Array.new(@rows) { Array.new(@columns, 0) }
   end
 end
 
